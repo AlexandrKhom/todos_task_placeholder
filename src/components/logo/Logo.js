@@ -7,7 +7,6 @@ export function Logo() {
   return (
     <div className={styles.headerWrapper}>
       <img src={logo} className={styles.logo} alt="logo"/>
-      {/*{this.headerArr.map(value => <HeaderItem item={value} key={value}/>)}*/}
     </div>
   );
 }

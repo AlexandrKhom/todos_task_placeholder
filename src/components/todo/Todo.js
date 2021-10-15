@@ -1,10 +1,7 @@
 import {useDispatch} from 'react-redux';
 import {useHistory} from 'react-router';
-
 import {deleteTask, editTask} from '../../redux';
-
 import {Button, Card, Col, Modal, Row} from 'react-bootstrap';
-
 import {Format} from '../forms/Format';
 import {useState} from 'react';
 
@@ -50,7 +47,7 @@ export const Todo = ({task}) => {
               <Button
                 variant={task.completed ? 'secondary' : 'primary'}
                 className={'m-1'}
-                onClick={() => setFormState(task)}>Edit</Button>
+                onClick={() => setFormState(task)}>Create</Button>
               <Button
                 variant={task.completed ? 'secondary' : 'primary'}
                 className={'m-1'}

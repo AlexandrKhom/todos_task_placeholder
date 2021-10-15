@@ -12,7 +12,6 @@ export function Registration() {
       <Button variant="primary" onClick={handleShow}>
         Log in
       </Button>
-
       <Offcanvas show={show} onHide={handleShow}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Registration</Offcanvas.Title>

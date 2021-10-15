@@ -1,19 +1,25 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router';
+import {useEffect, useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {useHistory} from 'react-router';
+import {editTask, setTask} from '../../redux';
 
-import { editTask, setTask } from '../../redux';
+import styled from 'styled-components';
 import {Button, Form} from 'react-bootstrap';
 
+const StyledWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Format = ({task}) => {
-  const [formState, setFormState] = useState({ title: '', completed: false });
+  const [formState, setFormState] = useState({title: '', completed: false});
 
   const history = useHistory();
   const dispatch = useDispatch();
-  const { state } = useLocation();
 
   useEffect(() => {
-    if(task) {
+    if (task) {
       setFormState(task);
     }
   }, [task]);
@@ -26,13 +32,15 @@ export const Format = ({task}) => {
       ? dispatch(editTask(formState))
       : dispatch(setTask(formState));
 
-    setFormState({title: '', completed: false });
-    if(formState.id) {history.push('/todos');}
+    setFormState({title: '', completed: false});
+    if (formState.id) {
+      history.push('/todos');
+    }
   };
 
   return (
-    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-      <Form onSubmit={onSubmit} className="" >
+    <StyledWrapper>
+      <Form onSubmit={onSubmit} className="">
         <Form.Group controlId={taskToAdd}>
           <Form.Label>Write ur TODO</Form.Label>
           <Form.Control type="text" placeholder="Todo..." name={'title'} value={formState.title} onChange={taskToAdd}/>
@@ -43,8 +51,7 @@ export const Format = ({task}) => {
         <Button variant="primary" type="submit" className={'mt-3'}>
           Submit
         </Button>
-
       </Form>
-    </div>
+    </StyledWrapper>
   );
 };

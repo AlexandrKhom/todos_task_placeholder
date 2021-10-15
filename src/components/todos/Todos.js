@@ -1,24 +1,25 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {useEffect} from 'react';
 
-import { loadTodos } from '../../redux';
-import { Todo } from '../todo/Todo';
+import {loadTodos} from '../../redux';
+import {Todo} from '../todo/Todo';
+import {StyleTodo} from '../todo/StyleTodo';
 
 export const Todos = () => {
   const dispatch = useDispatch();
-  const { tasks } = useSelector(({mainReducer}) => mainReducer);
+  const {tasks} = useSelector(({mainReducer}) => mainReducer);
 
-  useEffect( () => {
-    if(!tasks) {
+  useEffect(() => {
+    if (!tasks) {
       dispatch(loadTodos(10));
     }
   }, [tasks, dispatch]);
 
   return (
-    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
+    <StyleTodo>
       {
         !!tasks && tasks.map(task => <Todo task={task} key={task.id}/>)
       }
-    </div>
+    </StyleTodo>
   );
 };

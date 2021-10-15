@@ -4,12 +4,12 @@ import {Carousel} from 'react-bootstrap';
 export function Carous() {
 
   return (
-    <div style={{width: '50vw', height: '30vh'}}>
+    <div style={{width: '55vw', height: '40vh'}}>
       <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/1img.jfif"
+            src="/im1.jfif"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -20,7 +20,7 @@ export function Carous() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/1img.jfif"
+            src="/im2.jfif"
             alt="Second slide"
           />
 
@@ -32,7 +32,7 @@ export function Carous() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="/1img.jfif"
+            src="/im3.jfif"
             alt="Third slide"
           />
 

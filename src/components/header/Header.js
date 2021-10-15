@@ -12,7 +12,6 @@ export function Header() {
       <Navbar collapseOnSelect expand={'lg'} bg={'dark'} variant={'dark'}>
         <Navbar.Brand className={'ms-1'}>
           <Logo/>
-          {/*web-LOGO*/}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
         <Navbar.Collapse id={'responsive-navbar-nav'}>
