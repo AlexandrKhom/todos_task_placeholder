@@ -15,7 +15,7 @@ export const Todos = () => {
   }, [tasks, dispatch]);
 
   return (
-    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around', backgroundColor: '#6e9cb082'}}>
+    <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-around'}}>
       {
         !!tasks && tasks.map(task => <Todo task={task} key={task.id}/>)
       }

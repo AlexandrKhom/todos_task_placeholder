@@ -5,7 +5,7 @@ import { useHistory, useLocation } from 'react-router';
 import { editTask, setTask } from '../../redux';
 import {Button, Form} from 'react-bootstrap';
 
-export const Format = () => {
+export const Format = ({task}) => {
   const [formState, setFormState] = useState({ title: '', completed: false });
 
   const history = useHistory();
@@ -13,10 +13,10 @@ export const Format = () => {
   const { state } = useLocation();
 
   useEffect(() => {
-    if(state) {
-      setFormState(state);
+    if(task) {
+      setFormState(task);
     }
-  }, [state]);
+  }, [task]);
 
   const taskToAdd = (e) => setFormState({...formState, [e.target.name]: e.target.value});
 
@@ -31,8 +31,8 @@ export const Format = () => {
   };
 
   return (
-    <div>
-      <Form onSubmit={onSubmit} className="m-3" >
+    <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <Form onSubmit={onSubmit} className="" >
         <Form.Group controlId={taskToAdd}>
           <Form.Label>Write ur TODO</Form.Label>
           <Form.Control type="text" placeholder="Todo..." name={'title'} value={formState.title} onChange={taskToAdd}/>
@@ -43,6 +43,7 @@ export const Format = () => {
         <Button variant="primary" type="submit" className={'mt-3'}>
           Submit
         </Button>
+
       </Form>
     </div>
   );

@@ -50,11 +50,11 @@ export const Todo = ({task}) => {
               <Button
                 variant={task.completed ? 'secondary' : 'primary'}
                 className={'m-1'}
-                onClick={() => setFormState(task)}> Edit</Button>
+                onClick={() => setFormState(task)}>Edit</Button>
               <Button
                 variant={task.completed ? 'secondary' : 'primary'}
                 className={'m-1'}
-                onClick={() => dispatch(deleteTask(task.id))}>Delete</Button>
+                onClick={setNewEdit}>Modal Edit</Button>
               <Button
                 variant={task.completed ? 'secondary' : 'primary'}
                 className={'m-1'}
@@ -62,7 +62,7 @@ export const Todo = ({task}) => {
               <Button
                 variant={task.completed ? 'secondary' : 'primary'}
                 className={'m-1'}
-                onClick={setNewEdit}>testEDIT</Button>
+                onClick={() => dispatch(deleteTask(task.id))}>Delete</Button>
             </Card.Footer>
           </Card>
         </Col>
@@ -72,7 +72,7 @@ export const Todo = ({task}) => {
         <Modal.Header closeButton>
           <Modal.Title>Editor</Modal.Title>
         </Modal.Header>
-        <Modal.Body><Format/></Modal.Body>
+        <Modal.Body><Format task={task}/></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleOpen}>
             Close
